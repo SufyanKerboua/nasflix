@@ -2,16 +2,24 @@
 
 ## Description
 
-Netflic clone using nas data folder movies
+Netflix clone using nas data folder movies
 
 Goals:
+Mandatories
 
+-   Login system with a sessionToken (captcha? cookies?)
+-   System allowing to navigate between all movies according to their folder localisation
 -   Read any movie file (mkv, avi, mp4, iso)
--   Visualize all movies according to their folder localisation
--   Login system
+-   Make differencies between series folder & types folder
+-   Barre de recherche
+    Bonus
+-   System de visualization des series
+-   Utiliser une API externe pour rajouter des informations à afficher
+-   Allowing a way to upload videos
 
 ### Dependencies
 
+-   react-player
 -   react-router-dom
 -   redux
 -   react-redux
