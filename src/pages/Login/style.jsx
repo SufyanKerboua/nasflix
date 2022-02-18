@@ -1,10 +1,16 @@
 import { makeStyles } from '@mui/styles';
 import colors from 'utils/styles/colors';
+import wallpaper from 'assets/wallpaper.jpg';
 
 export const useStyles = makeStyles({
     loginContainer: {
-        backgroundColor: colors.backgroundSolidDark,
+        // backgroundColor: colors.backgroundSolidDark,
         height: '100vh',
+        backgroundImage: 'url(' + wallpaper + ')',
+        backgroundSize: 'cover',
+        zIndex: 1,
+        // opacity: 0.1,
+        // backgroundColor: 'rgba(0, 0, 0, 0.7)',
     },
     loginCard: {
         backgroundColor: colors.backgroundDark,
