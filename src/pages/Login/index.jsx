@@ -1,6 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import { Link, useNavigate } from 'react-router-dom';
+// import PropTypes from 'prop-types';
 import {
     Typography,
     Button,
@@ -18,6 +18,9 @@ import logo from 'assets/logo.jpg';
 import { useStyles } from './style';
 import colors from 'utils/styles/colors';
 
+import { useDispatch } from 'react-redux';
+import { loginUser } from 'state/user/userReducer';
+
 function Login() {
     const classes = useStyles();
     const signInText = 'Sign In';
@@ -25,14 +28,19 @@ function Login() {
     const login = 'Login';
     const password = 'password';
 
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+
     const handleSubmit = (event) => {
         event.preventDefault();
+        dispatch(loginUser());
         const data = new FormData(event.currentTarget);
         console.log({
             login: data.get('login'),
             password: data.get('password'),
             rememberBox: data.get('rememberBox'),
         });
+        navigate('/app');
     };
 
     return (
@@ -87,7 +95,7 @@ function Login() {
                                     <TextField
                                         InputProps={{
                                             style: {
-                                                color: colors.grey,
+                                                color: colors.white,
                                                 fontSize: 22,
                                             },
                                         }}
@@ -104,7 +112,7 @@ function Login() {
                                     <TextField
                                         InputProps={{
                                             style: {
-                                                color: colors.grey,
+                                                color: colors.white,
                                                 fontSize: 22,
                                             },
                                         }}

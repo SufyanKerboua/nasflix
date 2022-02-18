@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
@@ -12,22 +13,29 @@ import Error from 'pages/Error';
 import Home from 'pages/Home';
 import Login from 'pages/Login';
 
+import { store } from 'state/store';
+import ProtectedRoutes from 'utils/hooks/ProtectedRoutes';
+
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-    <React.StrictMode>
-        <ThemeProvider theme={theme}>
-            <CssBaseline />
-            <BrowserRouter>
-                <Routes>
-                    <Route path="*" element={<Error />} />
-                    <Route path="/" element={<Home />} />
-                    <Route path="/app" element={<App />} />
-                    <Route path="/login" element={<Login />} />
-                </Routes>
-            </BrowserRouter>
-        </ThemeProvider>
-    </React.StrictMode>,
+    <Provider store={store}>
+        <React.StrictMode>
+            <ThemeProvider theme={theme}>
+                <CssBaseline />
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/login" element={<Login />} />
+                        <Route element={<ProtectedRoutes />}>
+                            <Route path="*" element={<Error />} />
+                            <Route path="/" element={<Home />} />
+                            <Route path="/app" element={<App />} />
+                        </Route>
+                    </Routes>
+                </BrowserRouter>
+            </ThemeProvider>
+        </React.StrictMode>
+    </Provider>,
     document.getElementById('root')
 );
 
