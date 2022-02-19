@@ -30,7 +30,7 @@ export const useStyles = makeStyles({
     },
     lineSeparator: {
         backgroundColor: colors.grey,
-        height: '2px',
+        height: '1px',
         border: 'none',
         margin: '20px auto',
         width: '70%',

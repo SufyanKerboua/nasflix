@@ -4,8 +4,9 @@ import { selectUser } from 'state/selectors';
 
 const useAuth = () => {
     const userState = useSelector(selectUser);
-    console.log(userState);
+    console.log(userState.data);
     const user = userState.data;
+    console.log(user);
     return user && user.loggedIn;
 };
 

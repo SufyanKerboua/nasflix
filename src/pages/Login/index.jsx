@@ -1,5 +1,7 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginUser } from 'state/user/userReducer';
 // import PropTypes from 'prop-types';
 import {
     Typography,
@@ -13,13 +15,12 @@ import {
     FormControlLabel,
     Checkbox,
     Box,
+    Divider,
 } from '@mui/material';
-import logo from 'assets/logo.jpg';
-import { useStyles } from './style';
-import colors from 'utils/styles/colors';
 
-import { useDispatch } from 'react-redux';
-import { loginUser } from 'state/user/userReducer';
+import Header from 'components/Header';
+import colors from 'utils/styles/colors';
+import { useStyles } from './style';
 
 function Login() {
     const classes = useStyles();
@@ -40,24 +41,13 @@ function Login() {
             password: data.get('password'),
             rememberBox: data.get('rememberBox'),
         });
-        navigate('/app');
+        navigate('/');
     };
 
     return (
         <>
             <div className={classes.loginContainer}>
-                <AppBar position="relative">
-                    <Toolbar>
-                        <Link to="/home">
-                            <CardMedia
-                                className={classes.imgLogo}
-                                component="img"
-                                image={logo}
-                                title="img title"
-                            />
-                        </Link>
-                    </Toolbar>
-                </AppBar>
+                <Header />
                 <Grid
                     container
                     spacing={0}

@@ -12,6 +12,7 @@ import App from 'pages/App';
 import Error from 'pages/Error';
 import Home from 'pages/Home';
 import Login from 'pages/Login';
+import Player from 'pages/Player';
 
 import { store } from 'state/store';
 import ProtectedRoutes from 'utils/hooks/ProtectedRoutes';
@@ -30,6 +31,7 @@ ReactDOM.render(
                             <Route path="*" element={<Error />} />
                             <Route path="/" element={<Home />} />
                             <Route path="/app" element={<App />} />
+                            <Route path="/player" element={<Player />} />
                         </Route>
                     </Routes>
                 </BrowserRouter>

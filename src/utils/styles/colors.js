@@ -18,6 +18,12 @@ export const theme = createTheme({
         grey: {
             main: 'rgba(189, 189, 189, 1)',
         },
+        dark: {
+            main: 'rgba(79, 79, 79, 1)',
+        },
+        solidDark: {
+            main: '#282c34',
+        },
     },
 });
 
