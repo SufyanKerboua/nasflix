@@ -13,6 +13,7 @@ import Error from 'pages/Error';
 import Home from 'pages/Home';
 import Login from 'pages/Login';
 import Player from 'pages/Player';
+import ClippedDrawer from 'components/Drawer';
 
 import { store } from 'state/store';
 import ProtectedRoutes from 'utils/hooks/ProtectedRoutes';
@@ -26,6 +27,7 @@ ReactDOM.render(
                 <CssBaseline />
                 <BrowserRouter>
                     <Routes>
+                        <Route path="/drawer" element={<ClippedDrawer />} />
                         <Route path="/login" element={<Login />} />
                         <Route element={<ProtectedRoutes />}>
                             <Route path="*" element={<Error />} />

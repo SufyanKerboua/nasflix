@@ -13,21 +13,21 @@ import {
 import colors from 'utils/styles/colors';
 import { useStyles } from './style';
 
-function MovieCard({ title }) {
+function FolderCard({ title }) {
     const classes = useStyles();
     return (
         <Card
             sx={{
-                width: 150,
-                height: 300,
+                width: 300,
+                height: 220,
                 backgroundColor: colors.backgroundSolidDark,
             }}
         >
             <CardActionArea>
                 <CardMedia
                     component="img"
-                    height="190"
-                    // width="180"
+                    height="155"
+                    width="180"
                     image="https://source.unsplash.com/random"
                     alt="green iguana"
                 />
@@ -39,6 +39,7 @@ function MovieCard({ title }) {
                         gutterBottom
                         component="div"
                         align="center"
+                        color="text.secondary"
                     >
                         {title}
                     </Typography>
@@ -48,6 +49,6 @@ function MovieCard({ title }) {
     );
 }
 
-MovieCard.propTypes = {};
+FolderCard.propTypes = {};
 
-export default MovieCard;
+export default FolderCard;

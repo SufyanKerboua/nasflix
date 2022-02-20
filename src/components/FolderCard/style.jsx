@@ -9,9 +9,9 @@ export const useStyles = makeStyles({
         // padding: '8px',
     },
     cardTitle: {
-        // backgroundColor: colors.backgroundSolidDark,
+        backgroundColor: colors.backgroundSolidDark,
         // backgroundColor: 'rgb(18, 18, 18)',
-        // color: colors.grey,
+        color: colors.grey,
         // padding: '8px',
     },
     cardTitlePadding: {

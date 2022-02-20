@@ -1,10 +1,11 @@
 import React from 'react';
-import { Typography, Grid, Box, Container } from '@mui/material';
+import { Typography, Grid, Box, Container, Toolbar } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 import Header from 'components/Header';
 import MovieCard from 'components/MovieCard';
 import { useStyles } from './style';
+import FolderCard from 'components/FolderCard';
 
 const movies = [
     'Disney',
@@ -15,59 +16,80 @@ const movies = [
     'Avengers: infinity war (2018)',
     'Les gardiens de la galaxie (2014)',
     'Spider-man: into the spider-Verse (2018)',
-    'Disney2',
-    'Mr Robot2',
-    'La ligue des Justiciers : Guerre2',
-    'Joker (2019)2',
-    "Zack Snyder's Justice League (2021)2",
-    'Avengers: infinity war (2018)2',
-    'Les gardiens de la galaxie (2014)2',
-    'Spider-man: into the spider-Verse (2018)2',
+];
+
+const directories = [
+    'Invincible',
+    'And just like that',
+    'KAAMELOTT',
+    'La flamme',
+    'Orelsan Documentaire',
+    'Universe - Marvel',
+    'Universe - DC',
+    'Invincible-2',
+    'And just like that-2',
+    'KAAMELOTT-2',
+    'La flamme-2',
+    'Orelsan Documentaire-2',
+    'Universe - Marvel-2',
 ];
 
 function Home() {
     const classes = useStyles();
     return (
-        <>
-            <Box
-                className={classes.homeContainer}
-                minHeight="100vh"
-                display="flex"
-                flexDirection="column"
-            >
-                <Header showFullNavBar={true} />
-                <Container className={classes.cardGrid} maxWidth="xl">
-                    <Grid
-                        className={classes.homeContainer}
-                        container
-                        justifyContent="space-evenly"
-                        alignItems="center"
-                        spacing={8}
-                    >
-                        {movies.map((movie) => {
-                            return (
-                                <Grid
-                                    item
-                                    key={movie}
-                                    xs={12}
-                                    sm={6}
-                                    md={4}
-                                    lg={3}
-                                    xl={2}
-                                >
-                                    <Link to="/player">
-                                        <MovieCard
-                                            key={`movie-card-${movie}`}
-                                            title={movie}
-                                        />
-                                    </Link>
-                                </Grid>
-                            );
-                        })}
-                    </Grid>
-                </Container>
-            </Box>
-        </>
+        <Box
+            className={classes.homeContainer}
+            minHeight="100vh"
+            display="flex"
+            flexDirection="column"
+        >
+            <Header showFullNavBar={true} />
+            <Container className={classes.homeContainer} maxWidth="xl">
+                <Typography gutterBottom>Movies</Typography>
+                <Grid
+                    className={classes.movieContainer}
+                    container
+                    justifyContent="space-evenly"
+                    alignItems="center"
+                    spacing={8}
+                >
+                    {movies.map((movie) => {
+                        return (
+                            <Grid item key={movie}>
+                                <Link to="/player">
+                                    <MovieCard
+                                        key={`movie-card-${movie}`}
+                                        title={movie}
+                                    />
+                                </Link>
+                            </Grid>
+                        );
+                    })}
+                </Grid>
+                <Typography gutterBottom>Directories</Typography>
+
+                <Grid
+                    // className={classes.homeContainer}
+                    container
+                    justifyContent="space-evenly"
+                    alignItems="center"
+                    spacing={8}
+                >
+                    {directories.map((directory) => {
+                        return (
+                            <Grid item key={directory}>
+                                <Link to="/player">
+                                    <FolderCard
+                                        key={`directory-card-${directory}`}
+                                        title={directory}
+                                    />
+                                </Link>
+                            </Grid>
+                        );
+                    })}
+                </Grid>
+            </Container>
+        </Box>
     );
 }
 

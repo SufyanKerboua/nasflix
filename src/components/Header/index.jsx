@@ -14,6 +14,7 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import logo from 'assets/logo.jpg';
 import { useStyles } from './style';
+import colors from 'utils/styles/colors';
 
 import { useSelector } from 'react-redux';
 import { selectUser } from 'state/selectors';
@@ -22,16 +23,14 @@ function Header({ showFullNavBar = false }) {
     const classes = useStyles();
     // const userState = useSelector(selectUser);
     // const user = userState.data;
-
     return (
         <>
-            <AppBar position="relative" color="solidDark" enableColorOnDark>
+            <AppBar position="fixed" color="solidDark" enableColorOnDark>
                 <Toolbar>
                     <Grid
                         container
                         justifyContent="space-between"
                         alignItems="center"
-                        spacing={24}
                     >
                         <Grid item>
                             <Link to="/">
@@ -46,15 +45,20 @@ function Header({ showFullNavBar = false }) {
                         <Grid item>
                             {showFullNavBar ? (
                                 <TextField
-                                    // error
-                                    margin="normal"
+                                    InputLabelProps={{
+                                        style: { color: '#fff', fontSize: 22 },
+                                    }}
+                                    sx={{
+                                        backgroundColor: colors.backgroundDark,
+                                        borderTopLeftRadius: '4px',
+                                        borderTopRightRadius: '4px',
+                                    }}
                                     variant="filled"
                                     fullWidth
                                     id="search"
                                     label="search"
                                     name="search"
                                     autoComplete="search"
-                                    autoFocus
                                     color="primary"
                                     InputProps={{
                                         endAdornment: (
@@ -62,7 +66,7 @@ function Header({ showFullNavBar = false }) {
                                         ),
                                         style: {
                                             color: '#fff',
-                                            // fontSize: 22,
+                                            fontSize: 22,
                                         },
                                     }}
                                 />
@@ -71,6 +75,8 @@ function Header({ showFullNavBar = false }) {
                     </Grid>
                 </Toolbar>
             </AppBar>
+            <Toolbar />
+            <Toolbar />
         </>
     );
 }
