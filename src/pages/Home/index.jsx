@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Header from 'components/Header';
 import MovieCard from 'components/MovieCard';
+import SideDrawer from 'components/SideDrawer';
 import { useStyles } from './style';
 import FolderCard from 'components/FolderCard';
 
@@ -36,6 +37,7 @@ const directories = [
 
 function Home() {
     const classes = useStyles();
+    const drawerWidth = 240;
     return (
         <Box
             className={classes.homeContainer}
@@ -44,7 +46,17 @@ function Home() {
             flexDirection="column"
         >
             <Header showFullNavBar={true} />
-            <Container className={classes.homeContainer} maxWidth="xl">
+            <SideDrawer drawerWidth={drawerWidth} />
+            <Container
+                className={classes.homeContainer}
+                maxWidth="xl"
+                sx={{
+                    flexGrow: 1,
+                    p: 3,
+                    width: { sm: `calc(100% - ${drawerWidth}px)` },
+                    marginRight: '0px',
+                }}
+            >
                 <Typography gutterBottom>Movies</Typography>
                 <Grid
                     className={classes.movieContainer}

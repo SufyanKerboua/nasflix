@@ -27,7 +27,6 @@ ReactDOM.render(
                 <CssBaseline />
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/drawer" element={<ClippedDrawer />} />
                         <Route path="/login" element={<Login />} />
                         <Route element={<ProtectedRoutes />}>
                             <Route path="*" element={<Error />} />

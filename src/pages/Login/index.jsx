@@ -89,6 +89,12 @@ function Login() {
                                                 fontSize: 22,
                                             },
                                         }}
+                                        InputLabelProps={{
+                                            style: {
+                                                color: colors.grey,
+                                                fontSize: 22,
+                                            },
+                                        }}
                                         margin="normal"
                                         variant="filled"
                                         fullWidth
@@ -103,6 +109,12 @@ function Login() {
                                         InputProps={{
                                             style: {
                                                 color: colors.white,
+                                                fontSize: 22,
+                                            },
+                                        }}
+                                        InputLabelProps={{
+                                            style: {
+                                                color: colors.grey,
                                                 fontSize: 22,
                                             },
                                         }}

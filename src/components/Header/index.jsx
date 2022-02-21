@@ -23,6 +23,7 @@ function Header({ showFullNavBar = false }) {
     const classes = useStyles();
     // const userState = useSelector(selectUser);
     // const user = userState.data;
+    console.log(classes.customInputLabelTextField);
     return (
         <>
             <AppBar position="fixed" color="solidDark" enableColorOnDark>
@@ -46,7 +47,10 @@ function Header({ showFullNavBar = false }) {
                             {showFullNavBar ? (
                                 <TextField
                                     InputLabelProps={{
-                                        style: { color: '#fff', fontSize: 22 },
+                                        style: {
+                                            color: colors.grey,
+                                            fontSize: 22,
+                                        },
                                     }}
                                     sx={{
                                         backgroundColor: colors.backgroundDark,
@@ -65,7 +69,7 @@ function Header({ showFullNavBar = false }) {
                                             <SearchIcon name={'search'} />
                                         ),
                                         style: {
-                                            color: '#fff',
+                                            color: colors.white,
                                             fontSize: 22,
                                         },
                                     }}
