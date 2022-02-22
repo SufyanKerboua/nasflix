@@ -37,7 +37,7 @@ const directories = [
 
 function Home() {
     const classes = useStyles();
-    const drawerWidth = 240;
+    const drawerWidth = 220;
     return (
         <Box
             className={classes.homeContainer}
@@ -53,7 +53,7 @@ function Home() {
                 sx={{
                     flexGrow: 1,
                     p: 3,
-                    width: { sm: `calc(100% - ${drawerWidth}px)` },
+                    width: { md: `calc(100% - ${drawerWidth}px)` },
                     marginRight: '0px',
                 }}
             >

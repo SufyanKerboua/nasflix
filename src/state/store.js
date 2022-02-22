@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userReducer from 'state/user/userReducer';
+import drawerReducer from './drawer/drawerReducer';
 
 export const store = configureStore({
     reducer: {
         user: userReducer,
+        drawer: drawerReducer,
     },
 });
 

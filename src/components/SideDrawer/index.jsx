@@ -12,14 +12,17 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
 import colors from 'utils/styles/colors';
-
-// const drawerWidth = 240;
+import { selectDrawer } from 'state/selectors';
+import { toggleDrawer } from 'state/drawer/drawerReducer';
+import { useSelector, useDispatch } from 'react-redux';
 
 function SideDrawer({ drawerWidth }) {
-    const [mobileOpen, setMobileOpen] = useState(false);
+    // const [mobileOpen, setMobileOpen] = useState(false);
 
+    const mobileOpen = useSelector(selectDrawer).isOpen;
+    const dispatch = useDispatch();
     const handleDrawerToggle = () => {
-        setMobileOpen(!mobileOpen);
+        dispatch(toggleDrawer());
     };
 
     const drawer = (
@@ -38,13 +41,20 @@ function SideDrawer({ drawerWidth }) {
                 )}
             </List>
             <Divider />
-            <List>
-                {['All mail', 'Trash', 'Spam'].map((text, index) => (
+            <List sx={{ overflowX: 'scroll' }}>
+                {[
+                    'All mail',
+                    'Trash',
+                    'Spam Send email Send email Send email',
+                ].map((text, index) => (
                     <ListItem button key={text}>
                         <ListItemIcon>
                             {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
                         </ListItemIcon>
-                        <ListItemText primary={text} />
+                        <ListItemText
+                            primary={text}
+                            sx={{ whiteSpace: 'nowrap' }}
+                        />
                     </ListItem>
                 ))}
             </List>
@@ -55,8 +65,8 @@ function SideDrawer({ drawerWidth }) {
         <Box
             component="nav"
             sx={{
-                width: { sm: drawerWidth },
-                flexShrink: { sm: 0 },
+                width: { md: drawerWidth },
+                flexShrink: { md: 0 },
             }}
             aria-label="mailbox folders"
         >
@@ -69,7 +79,7 @@ function SideDrawer({ drawerWidth }) {
                     keepMounted: true, // Better open performance on mobile.
                 }}
                 sx={{
-                    display: { xs: 'block', sm: 'none' },
+                    display: { xs: 'block', md: 'none' },
                     '& .MuiDrawer-paper': {
                         boxSizing: 'border-box',
                         width: drawerWidth,
@@ -84,11 +94,11 @@ function SideDrawer({ drawerWidth }) {
             <Drawer
                 variant="permanent"
                 sx={{
-                    display: { xs: 'none', sm: 'block' },
+                    display: { xs: 'none', md: 'block' },
                     '& .MuiDrawer-paper': {
                         boxSizing: 'border-box',
                         width: drawerWidth,
-                        top: '100px',
+                        top: '64px',
                         backgroundColor: colors.backgroundDark,
                         color: colors.white,
                     },
